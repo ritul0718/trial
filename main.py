@@ -39,7 +39,9 @@ def main():
             chunk_overlap=200,
             length_function=len
             )
-        chunks = text_splitter.split_text(text=text)   
+        chunks = text_splitter.split_text(text=text)
+
+        st.write(chunks)   
 
 
 
