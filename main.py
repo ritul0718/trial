@@ -1,5 +1,5 @@
 import streamlit as st
-from dotenv import load_dotenv
+
 import pickle
 from PyPDF2 import PdfReader
 from streamlit_extras.add_vertical_space import add_vertical_space
@@ -27,7 +27,7 @@ with st.sidebar:
 def main():
     st.header("Chat with PDF 💬")
 
-    load_dotenv()
+   
 
     # upload a PDF file
     pdf = st.file_uploader("Upload your PDF", type='pdf')
@@ -51,17 +51,7 @@ def main():
         # # embeddings
 
         
-        store_name = pdf.name[:-4]
-
-        if os.path.exists(f"{store_name}.pkl"):
-            with open(f"{store_name}.pkl", "rb") as f:
-                VectorStore = pickle.load(f)
-            # st.write('Embeddings Loaded from the Disk')s
-        else:
-            embeddings = OpenAIEmbeddings()
-            VectorStore = FAISS.from_texts(chunks, embedding=embeddings)
-            with open(f"{store_name}.pkl", "wb") as f:
-                pickle.dump(VectorStore, f)
+       
         
 
         # st.write(chunks)   
