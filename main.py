@@ -21,3 +21,7 @@ with st.sidebar:
 def main():
     st.header("Chat with PDF 💬")
 
+
+
+if __name__ == '__main__':
+    main()
